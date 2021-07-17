@@ -9,22 +9,11 @@ formulario.addEventListener('submit', (e) => {
       email,
     }
     let convertData = JSON.stringify(data);
-  
-    localStorage.setItem('lead', convertData)
-  
-    /*
-    let content = document.getElementById('content')
-  
-    let carregando = `<p>carregando...</p>`
-  
-    let pronto = `<p>pronto</p>`
-  
-    content.innerHTML = carregando
-  
-  
-    setTimeout(() => {
-      content.innerHTML = pronto
-    }, 1000)
-*/
-    alert('A')
+
+    if(localStorage.getItem(email) === null){
+      localStorage.setItem(email, convertData);
+      alert('Sucesso! As informações foram cadastradas.');
+    } else{
+      alert('Erro! As informações já foram cadastradas antes.');
+    } 
 });
